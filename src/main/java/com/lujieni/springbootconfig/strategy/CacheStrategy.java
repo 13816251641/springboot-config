@@ -1,7 +1,7 @@
 package com.lujieni.springbootconfig.strategy;
 
 public interface CacheStrategy {
-    /*save*/
+    /*saveee*/
     void save(String value);
 
 }
