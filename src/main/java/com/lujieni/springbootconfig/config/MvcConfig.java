@@ -20,22 +20,20 @@ import java.util.List;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
     /**
-     * 设置json解析器为fastjson
-     * @param converters
+     *  配置json解析器为fastjson
+        public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+            FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
+            FastJsonConfig fastJsonConfig = new FastJsonConfig();
+            fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
+
+            List<MediaType> list = new ArrayList<>();
+            list.add(MediaType.APPLICATION_JSON_UTF8);
+            fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
+            fastJsonHttpMessageConverter.setSupportedMediaTypes(list);
+
+            converters.add(0, fastJsonHttpMessageConverter);
+        }
      */
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
-        FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.PrettyFormat);
-
-        List<MediaType> list = new ArrayList<>();
-        list.add(MediaType.APPLICATION_JSON_UTF8);
-        fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
-        fastJsonHttpMessageConverter.setSupportedMediaTypes(list);
-
-        converters.add(0, fastJsonHttpMessageConverter);
-    }
 
     /**
      * 设置允许跨域访问
