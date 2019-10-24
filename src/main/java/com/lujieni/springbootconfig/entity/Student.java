@@ -1,8 +1,6 @@
 package com.lujieni.springbootconfig.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -10,7 +8,9 @@ import java.util.Date;
 public class Student {
     private Integer age=27;
     private String name="王虎";
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    /*
+     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+     @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    */
     private Date date;
 }
