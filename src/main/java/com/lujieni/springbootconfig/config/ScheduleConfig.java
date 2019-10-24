@@ -6,6 +6,9 @@ import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
 import java.util.concurrent.Executors;
 
+/**
+ * 提供一个含有2个线程的线程池供定时任务调用
+ */
 @Configuration
 public class ScheduleConfig implements SchedulingConfigurer {
     @Override
