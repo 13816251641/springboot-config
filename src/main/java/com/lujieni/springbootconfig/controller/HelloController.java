@@ -17,7 +17,7 @@ public class HelloController {
 
     @GetMapping("/get_student")
     public Student getStudent(HttpServletRequest request){
-        HttpSession session = request.getSession();//StandardSessionFacade
+        HttpSession session = request.getSession(true);//StandardSessionFacade
         String id = session.getId();// 633675F1DC88C51E222032FAE5B98D89
         session.setAttribute("age","28");
         Student student = new Student();
