@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 
 @RestController
@@ -14,7 +16,10 @@ import java.util.Date;
 public class HelloController {
 
     @GetMapping("/get_student")
-    public Student getStudent(){
+    public Student getStudent(HttpServletRequest request){
+        HttpSession session = request.getSession();//StandardSessionFacade
+        String id = session.getId();// 633675F1DC88C51E222032FAE5B98D89
+        session.setAttribute("age","28");
         Student student = new Student();
         student.setDate(new Date());
         student.setName("12");

@@ -49,7 +49,6 @@ public class MvcConfig implements WebMvcConfigurer {
                 .allowedMethods("*");
     }
 
-
     @Bean
     public String get(Student student){
         log.info(student.toString());
