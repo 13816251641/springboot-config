@@ -11,7 +11,7 @@ import org.springframework.util.Assert;
 public class SpringbootconfigApplicationTests {
 
     /**
-     * 利用assert进行判空校验
+     * 利用assert进行批量判空校验
      */
     @Test
     public void testAssert() {

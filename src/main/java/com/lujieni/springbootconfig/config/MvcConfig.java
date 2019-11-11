@@ -48,10 +48,4 @@ public class MvcConfig implements WebMvcConfigurer {
                 .allowedOrigins("*")
                 .allowedMethods("*");
     }
-
-    @Bean
-    public String get(Student student){
-        log.info(student.toString());
-        return "name";
-    }
 }

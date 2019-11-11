@@ -7,36 +7,32 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  *
- * 下面的示例原本想通过@Qualifier注解区分不同bean发现并没有什么卵用,
- * 因为该标签必须和@Autowired标签一起使用,所以我们只能使用@Primary标签
+ * 下面的示例通过@Qualifier注解区分不同bean,
+ * 同时也支持利用入参名来区分,同时也可以使用
+ * @Primary来区分
+ *
  * @Auther ljn
  * @Date 2019/11/5
  */
 @Configuration
 public class BeanConfig {
 
- /*
-    利用@Qualifier("y")无法区分多个bean
+    /*
+        利用@Qualifier("y")也可以区分多个bean
+    */
     @Bean
-    public String useStudent(@Qualifier("y") Student sone){
+    public String useStudent(@Qualifier("s") Student sone){
         System.out.println(sone.getName());
         return "hello";
-    }*/
-
-
-  /*  @Bean("y")
-    public Student y(){
-        Student s = new Student();
-        s.setName("s2");
-        return s;
     }
 
-    @Bean("s")
-    public Student s(){
-        Student s = new Student();
-        s.setName("s1");
-        return s;
-    }*/
-
+    /*
+        利用Student s 指定入参名字也可以指定bean
+     */
+    @Bean
+    public String useStudent2(Student s){
+        System.out.println(s.getName());
+        return "hello";
+    }
 
 }
