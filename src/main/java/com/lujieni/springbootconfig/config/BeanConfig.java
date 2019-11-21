@@ -2,6 +2,7 @@ package com.lujieni.springbootconfig.config;
 
 import com.lujieni.springbootconfig.entity.Student;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,8 +18,19 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class BeanConfig {
 
-    /*
-        利用@Qualifier("y")也可以区分多个bean
+    /**
+     * 从其他bean中读取其成员变量name的值,
+     * 该成员变量一定要是public的!!!
+     * @param name
+     */
+    @Value("#{myConfig.name}")
+    private void showName(String name){
+        System.out.println("showName");
+        System.out.println(name);
+    }
+
+    /**
+       利用@Qualifier("y")也可以区分多个bean
     */
     @Bean
     public String useStudent(@Qualifier("s") Student sone){
@@ -26,7 +38,7 @@ public class BeanConfig {
         return "hello";
     }
 
-    /*
+    /**
         利用Student s 指定入参名字也可以指定bean
      */
     @Bean
