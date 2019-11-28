@@ -25,7 +25,6 @@ public class BeanConfig {
      */
     @Value("#{myConfig.name}")
     private void showName(String name){
-        System.out.println("showName");
         System.out.println(name);
     }
 
