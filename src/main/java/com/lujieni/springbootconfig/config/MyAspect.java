@@ -25,7 +25,8 @@ public class MyAspect {
         String methodName = point.getSignature().getName();
         List<Object> args = Arrays.asList(point.getArgs());
         System.out.println("before:连接点方法为：" + methodName + ",参数为：" + args);
-        /* before没有办法阻止目标方法的执行,除了抛异常,
+        /*
+           before没有办法阻止目标方法的执行,除了抛异常,
            即使抛了异常,after和afterThrowing仍旧会执行
          */
         throw new RuntimeException("haha");
@@ -45,7 +46,7 @@ public class MyAspect {
     }
 
     /**
-     * 出不出异常都会执行
+     * after出不出异常都会执行
      * @param point
      */
     @After(value = "filter()")
