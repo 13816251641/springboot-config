@@ -2,7 +2,7 @@ package com.lujieni.springbootconfig.config;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.List;
@@ -11,8 +11,8 @@ import java.util.List;
  * @Auther ljn
  * @Date 2019/11/28
  */
-@Aspect
-@Configuration
+@Aspect //必须要
+@Component //必须要
 public class MyAspect {
 
     @Pointcut("@annotation(com.lujieni.springbootconfig.annotation.MyAnnotation)")
@@ -26,7 +26,7 @@ public class MyAspect {
         List<Object> args = Arrays.asList(point.getArgs());
         System.out.println("before:连接点方法为：" + methodName + ",参数为：" + args);
         /*
-           before没有办法阻止目标方法的执行,除了抛异常,
+           before没有办法阻止目标方法的执行除了抛异常,
            即使抛了异常,after和afterThrowing仍旧会执行
          */
         throw new RuntimeException("haha");
