@@ -17,6 +17,7 @@ import java.util.List;
 
 /**
  * springboot2.0后推荐实现WebMvcConfigurer接口
+ * 配置跨域访问
  */
 @Slf4j
 @Configuration

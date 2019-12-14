@@ -10,6 +10,7 @@ import java.util.List;
 /**
  * @Auther ljn
  * @Date 2019/11/28
+ * 切面类
  */
 @Aspect //必须要
 @Component //必须要
