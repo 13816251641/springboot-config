@@ -17,5 +17,7 @@ public class MyFilter implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         log.info("start to MyFilter");
         chain.doFilter(request, response);
+        System.out.println("end to MyFilter");
     }
+
 }
