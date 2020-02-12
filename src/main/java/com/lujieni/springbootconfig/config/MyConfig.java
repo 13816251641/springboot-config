@@ -33,9 +33,9 @@ public class MyConfig {
         System.out.println(name);//lujieni
     }
 
-
-    /*
-         引入Bean的方式二
+    /**
+     * 引入Bean的方式二
+     * @return
      */
     @Bean("y")
     public Student y(){
