@@ -8,7 +8,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
 
 /**
- * @Description: Environment对象可以获取.properties文件中的参数,如果没有就为空不会报错
+ * @Description:
+ * Environment对象可以获取.properties文件中的参数,如果没有就为空不会报错
+ * 而使用@Value("${}")的形式如果对应的key不存在就会报错
  * @return:
  * @Author: lujieni
  * @Date: 2021/10/19
@@ -23,7 +25,7 @@ public class ProfileConfig {
     @Bean
     public String readProfile(@Value("${name}") String env){
         log.info("name is {}",env);
-        log.info("name123 is "+environment.getProperty("name123"));
+        log.info("name is "+environment.getProperty("name"));
         return env;
     }
 
