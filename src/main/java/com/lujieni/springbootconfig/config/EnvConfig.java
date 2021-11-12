@@ -10,24 +10,23 @@ import org.springframework.core.env.Environment;
 /**
  * @Description:
  * Environment对象可以获取.properties文件中的参数,如果没有就为空不会报错
- * 而使用@Value("${}")的形式如果对应的key不存在就会报错
+ * 而使用@Value("${}")的形式如果对应的key不存在就会报错!!!
  * @return:
  * @Author: lujieni
  * @Date: 2021/10/19
  */
 @Configuration
 @Slf4j
-public class ProfileConfig {
+public class EnvConfig {
 
     @Autowired
     private Environment environment;
 
     @Bean
-    public String readProfile(@Value("${name}") String env){
-        log.info("name is {}",env);
-        log.info("name is "+environment.getProperty("name"));
+    public String readProfile(@Value("${env:123}") String env){
+        log.info("env is {}",env);
+        log.info("env is "+environment.getProperty("env"));
         return env;
     }
-
 
 }
